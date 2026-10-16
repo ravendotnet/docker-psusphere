@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'api',
     'studentorg',
     "widget_tweaks",
     'django.contrib.sites',
@@ -48,9 +50,13 @@ INSTALLED_APPS = [
 
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
+    'rest_framework.authtoken',
 ]
 
-SITE_ID = 1
+if "blue-liveweb" in socket.gethostname():
+    SITE_ID = 2
+else:
+    SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -198,3 +204,12 @@ PWA_APP_ICONS_APPLE = [
 ]
 PWA_APP_DIR = 'ltr'
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATION_CLASSES': [
+      'rest_framework.authentication.TokenAuthentication',
+  ],
+  'DEFAULT_PERMISSION_CLASSES': [
+      'rest_framework.permissions.IsAuthenticated',
+  ],
+}
