@@ -1,4 +1,5 @@
 {% load static %}
+{% load pwa %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="{% static 'css/ready.css' %}">
     <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	{% progressive_web_app_meta %}
 </head>
 <body>
 	<div class="wrapper">
@@ -25,6 +27,7 @@
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
 					
+					<!-- Searh Bar -->
 					<form class="navbar-left navbar-form nav-search mr-md-3" action="">
 						<div class="input-group">
 							<input type="text" placeholder="Search ..." class="form-control">
@@ -104,13 +107,13 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="{% static 'img/profile.jpg' %}" alt="user-img" width="36" class="img-circle"><span >Hizrian</span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="{% static 'img/profile.jpg' %}" alt="user-img" width="36" class="img-circle"><span>{{ request.user.username }}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
 										<div class="u-img"><img src="{% static 'img/profile.jpg' %}" alt="user"></div>
 										<div class="u-text">
-											<h4>Hizrian</h4>
+											<h4>{{ request.user.username }}</h4>
 											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
 										</div>
 									</li>
@@ -138,7 +141,7 @@
 						<div class="info">
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
+									{{ request.user.username }}
 									<span class="user-level">Administrator</span>
 									<span class="caret"></span>
 								</span>
