@@ -1,48 +1,71 @@
-## MINI STUDENT MANAGEMENT SYSTEM
-### :book: Description :book:
-----
-An informative Django-based management system that performs a simple mini database that contain a student management records and school-related fields such as:
-* Colleges
-* Program
-* Organization
-* Organization Members
-* Students
+# PSUSphere Docker Project Description
+
+**PSUSphere** is a Django web application packaged using Docker. Docker allows the application to run in a consistent environment across different machines without requiring manual installation of all Python dependencies.
 
 ---
-### :star: Key Features :star:
-It has built features for Overall and distinct features for every class
 
-**Overall Features**
-* Can manage records
-* Add & Delete specific records 
-* Add User/Group 
+## Instructional Procedure
 
-**College** 
-* Search Bar that enables to search for a college name
-* View and display of colleges with creation and updation date
-* Has filter for creation
+### Prerequisites
+Before running the application, make sure you have installed:
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+* **Docker Compose** (included with Docker Desktop)
+* A **Docker Hub account** (to access or publish the image)
 
-**Program**
-* Search programs by program name and college name
-* Display of program name related to its college 
-* Filter by College 
+---
 
-**Organization**
-* Search Bar for organization through org name
-* Display of organization name, college where it belongs, and description
-* Filter by College
+## Build and Run Locally
 
-**Organization Members**
-* Search organization members by member name
-* Display of student name, program, organization, and date joined
-* Fake data generation by faker 
-    * Generated samples e.g., class of students, organization, and organization members related to students program, and organization.
+1. **Clone or download** the project repository.
+2. **Open PowerShell** in the project root directory, where the `Dockerfile` and `docker-compose.yml` are located.
+3. **Build the Docker image:**
+   ```powershell
+   docker compose build
+   ```
+4. **Start the application:**
+   ```powershell
+   docker compose up -d
+   ```
+5. **Open the application in your browser:**
+   [http://localhost:8000](http://localhost:8000)
 
-**Students**
-* Search by student name 
-* Diplay of student id, name, and program
-___
-### :student: AUTHORS :student:
-PLURAL, KEZIAH ZOE S.
+### Useful Management Commands
 
-BALOFINOS, JANE PAULINE S.
+* **View container status:**
+  ```powershell
+  docker compose ps
+  ```
+* **View application logs:**
+  ```powershell
+  docker compose logs
+  ```
+* **Stop the application:**
+  ```powershell
+  docker compose down
+  ```
+
+---
+
+## Docker Hub Image
+
+The Docker image is published to Docker Hub under:
+`ravendotnet/my-django-app:latest`
+
+### Pull and Run the Docker Hub Image
+
+1. Make sure **Docker Desktop** is running.
+2. Open **PowerShell** in a folder containing the client `docker-compose.yml` file.
+3. **Pull the image from Docker Hub:**
+   ```powershell
+   docker pull ravendotnet/django-app:latest
+   ```
+4. **Start the application using the client configuration:**
+   ```powershell
+   docker compose up -d
+   ```
+5. **Open the application:**
+   [http://localhost:8000](http://localhost:8000)
+6. **Stop the application:**
+   ```powershell
+   docker compose down
+   ```
